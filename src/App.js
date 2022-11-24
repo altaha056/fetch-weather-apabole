@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_key } from "./api_key";
 function App() {
   const [weather, setweather] = useState([]);
   const [weatherArr, setweatherArr] = useState([]);
@@ -7,9 +8,9 @@ function App() {
     const lat = "-6.200000";
     const lon = "106.816666";
     const part = "current,minutely,hourly";
-    const API_key = "4f1769740d1c0106507af3fa54377371";
+    const API_keys = API_key;
     const weatherData = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exclude=${part}&appid=${API_key}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exclude=${part}&appid=${API_keys}`
     );
     const dataWeather = await weatherData.json();
     const weatherList = await dataWeather.list;
